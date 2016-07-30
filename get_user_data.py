@@ -1,3 +1,5 @@
-import urllib2
+import requests
 
-urllib2.urlopen("http://104.154.26.64/gate?name=Andrey&id=1").read()
+r = requests.get("http://104.154.26.64/gate?name=Andrey&id=1")
+
+print(r.text)
