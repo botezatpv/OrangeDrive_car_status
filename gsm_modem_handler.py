@@ -53,7 +53,7 @@ class TextMessage:
         self.content = message
 
     def connectPhone(self):
-        self.ser = serial.Serial('COM70', 460800, timeout=5, xonxoff = False, rtscts = False, bytesize = serial.EIGHTBITS, parity = serial.PARITY_NONE, stopbits = serial.STOPBITS_ONE)
+        self.ser = serial.Serial('ttyUSB0', 460800, timeout=5, xonxoff = False, rtscts = False, bytesize = serial.EIGHTBITS, parity = serial.PARITY_NONE, stopbits = serial.STOPBITS_ONE)
         time.sleep(1)
 
     def sendMessage(self):
