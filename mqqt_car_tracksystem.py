@@ -1,23 +1,26 @@
-from paho.mqtt import client
+import paho.mqtt.client as mqtt
+import paho.mqtt.publish as publish
 
+# The callback for when the client receives a CONNACK response from the server.
+def on_connect(client, userdata, flags, rc):
+    print("Connected with result code "+str(rc))
 
-def on_connect(client, userdata, rc):  
-    print("Connected with result code: %s" % rc)
-    client.subscribe("devices/#")
+    # Subscribing in on_connect() means that if we lose the connection and
+    # reconnect then subscriptions will be renewed.
+    client.subscribe("/devices/#")
 
-def on_message(client, userdata, msg):  
-    print("%s: %s" % (msg.topic, msg.payload))
-    recived_vals = {{"ability": "N"}, {"last_seen":"3"}, {"last_sequience": "0"}, {"parent": "fe80::212:4b00:939:2d5d"}}
-    print recived_vals
-    #tokens = msg.split('/')
+# The callback for when a PUBLISH message is received from the server.
+def on_message(client, userdata, msg):
+    print(msg.topic+" "+str(msg.payload))
 
-def main():  
-    subscriber = client.Client()
-    subscriber.on_connect = on_connect
-    subscriber.on_message = on_message
+client = mqtt.Client()
+client.on_connect = on_connect
+client.on_message = on_message
 
-    subscriber.connect("100.100.144.205")
-    subscriber.loop_forever()
+client.connect("100.100.144.205", 1883, 60)
 
-if __name__ == "__main__":  
-    main()
+# Blocking call that processes network traffic, dispatches callbacks and
+# handles reconnecting.
+# Other loop*() functions are available that give a threaded interface and a
+# manual interface.
+client.loop_forever()
