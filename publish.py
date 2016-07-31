@@ -13,5 +13,5 @@ except ImportError:
         sys.path.insert(0, cmd_subfolder)
     import paho.mqtt.publish as publish
 
-msgs = [{'topic':"devices/Edison/aaaa:212:4b00:939:3607/gpio/1/get 1", 'payload':"multiple 1"}, ("devices/Edison/aaaa:212:4b00:939:3607/gpio/2/get 2", "multiple 2", 0, False)]
-print publish.multiple(msgs, hostname="100.100.144.205")
+msgs = [{'topic':"devices/Edison/aaaa::212:4b00:939:3607/gpio/2/toggle", 'payload':"0"}, ("devices/Edison/aaaa::212:4b00:939:3607/gpio/2/toggle", "1", 0, False)]
+publish.multiple(msgs, hostname="100.100.144.205")
