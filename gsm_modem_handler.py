@@ -70,7 +70,8 @@ class TextMessage:
         self.ser.write(chr(26))
         time.sleep(1)
     def getMessage(self):
-        self.ser.write('AT+CPMS=?')
+        return self.ser.write('AT+CMGR=2\r')
+       
 
     def disconnectPhone(self):
         self.ser.close()
@@ -80,4 +81,5 @@ sms.connectPhone()
 #sms.sendMessage()
 sms.getMessage()
 sms.disconnectPhone()
-print "message sent successfully"
+print sms.getMessage()
+#print "message sent successfully"
