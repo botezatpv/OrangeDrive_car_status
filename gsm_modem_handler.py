@@ -77,4 +77,3 @@ sms.sendMessage()
 sms.disconnectPhone()
 print "message sent successfully"
 
-"""
