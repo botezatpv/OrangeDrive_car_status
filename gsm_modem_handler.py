@@ -5,7 +5,7 @@
 Simple demo app that listens for incoming SMS messages, displays the sender's number'
 and the messages, then replies to the SMS by saying "thank you"
 """
-
+"""
 from __future__ import print_function
 
 import logging
@@ -21,6 +21,7 @@ def handleSms(sms):
     print('Replying to SMS...')
     sms.reply(u'SMS received: "{0}{1}"'.format(sms.text[:20], '...' if len(sms.text) > 20 else ''))
     print('SMS sent.\n')
+    print 'HI It"s Me Mario'
     
 def main():
     print('Initializing modem...')
@@ -29,6 +30,7 @@ def main():
     modem = GsmModem(PORT, BAUDRATE, smsReceivedCallbackFunc=handleSms)
     modem.smsTextMode = False 
     modem.connect(PIN)
+    handleSms()
     print('Waiting for SMS message...')    
     try:    
         modem.rxThread.join(2**31) # Specify a (huge) timeout so that it essentially blocks indefinitely, but still receives CTRL+C interrupt signal
@@ -67,13 +69,15 @@ class TextMessage:
         time.sleep(1)
         self.ser.write(chr(26))
         time.sleep(1)
+    def getMessage(self):
+        self.ser.write('AT+CPMS=?')
 
     def disconnectPhone(self):
         self.ser.close()
 
-sms = TextMessage("+79671358170","Mummy i sent this message from my computer")
-sms.connectPhone()
-sms.sendMessage()
-sms.disconnectPhone()
+#sms = TextMessage("+79671358170","Mummy i sent this message from my computer")
+connectPhone()
+#sms.sendMessage()
+getMessage()
+disconnectPhone()
 print "message sent successfully"
-"""
