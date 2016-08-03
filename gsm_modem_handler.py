@@ -75,9 +75,9 @@ class TextMessage:
     def disconnectPhone(self):
         self.ser.close()
 
-#sms = TextMessage("+79671358170","Mummy i sent this message from my computer")
-connectPhone()
+sms = TextMessage("+79671358170","Mummy i sent this message from my computer")
+sms.connectPhone()
 #sms.sendMessage()
-getMessage()
-disconnectPhone()
+sms.getMessage()
+sms.disconnectPhone()
 print "message sent successfully"
