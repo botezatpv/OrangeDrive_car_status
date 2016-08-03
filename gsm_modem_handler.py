@@ -5,6 +5,7 @@
 Simple demo app that listens for incoming SMS messages, displays the sender's number'
 and the messages, then replies to the SMS by saying "thank you"
 """
+"""
 from __future__ import print_function
 
 import logging
@@ -26,7 +27,7 @@ def main():
     # Uncomment the following line to see what the modem is doing:
     logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
     modem = GsmModem(PORT, BAUDRATE, smsReceivedCallbackFunc=handleSms)
-    modem.smsTextMode = False 
+    modem.smsTextMode = True 
     modem.connect(PIN)
     print('Waiting for SMS message...')    
     try:    
@@ -41,7 +42,7 @@ import serial
 import time
 
 class TextMessage:
-    def __init__(self, recipient="+2348065777685", message="TextMessage.content not set."):
+    def __init__(self, recipient="+79671358170", message="TextMessage.content not set."):
         self.recipient = recipient
         self.content = message
 
@@ -70,7 +71,7 @@ class TextMessage:
     def disconnectPhone(self):
         self.ser.close()
 
-sms = TextMessage("+2348063796720","Mummy i sent this message from my computer")
+sms = TextMessage("+79671358170","Mummy i sent this message from my computer")
 sms.connectPhone()
 sms.sendMessage()
 sms.disconnectPhone()
