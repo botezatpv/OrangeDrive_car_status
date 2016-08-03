@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
-"""\
+
 Demo: handle incoming SMS messages by replying to them
-Simple demo app that listens for incoming SMS messages, displays the sender's number
+Simple demo app that listens for incoming SMS messages, displays the sender's number'
 and the messages, then replies to the SMS by saying "thank you"
 """
 """
@@ -10,7 +10,7 @@ from __future__ import print_function
 
 import logging
 
-PORT = '/dev/ttyUSB0'
+PORT = '/dev/ttyAMA0'
 BAUDRATE = 115200
 PIN = None # SIM card PIN (if any)
 
@@ -76,3 +76,5 @@ sms.connectPhone()
 sms.sendMessage()
 sms.disconnectPhone()
 print "message sent successfully"
+
+"""
