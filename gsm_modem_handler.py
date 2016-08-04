@@ -36,8 +36,7 @@ def handleSms(sms):
     print('Replying to SMS...')
     sms.reply(u'SMS received: "{0}{1}"'.format(sms.text[:20], '...' if len(sms.text) > 20 else ''))
     print('SMS sent.\n')
-    msgs = [{'topic':"/hello/Lol", 'payload':"0"}]
-    publish.single(msgs, hostname = '10.0.0.49')
+    publish.single("hello/","Hello", hostname="10.0.0.4")
     
     
 def main():
