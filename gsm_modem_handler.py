@@ -5,12 +5,12 @@
 Simple demo app that listens for incoming SMS messages, displays the sender's number'
 and the messages, then replies to the SMS by saying "thank you"
 """
-"""
+
 from __future__ import print_function
 
 import logging
 
-PORT = '/dev/ttyUSB2'
+PORT = '/dev/ttyUSB1'
 BAUDRATE = 115200
 PIN = None # SIM card PIN (if any)
 
@@ -83,3 +83,4 @@ sms.getMessage()
 sms.disconnectPhone()
 print sms.getMessage()
 #print "message sent successfully"
+"""
