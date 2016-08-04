@@ -24,6 +24,7 @@ def handleSms(sms):
     msgs = [{'topic':"/hello/Lol", 'payload':"0"}
     publish.single(msgs, hostname = '10.0.0.49')
     
+    
 def main():
     print('Initializing modem...')
     # Uncomment the following line to see what the modem is doing:
