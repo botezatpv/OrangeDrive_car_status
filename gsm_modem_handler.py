@@ -21,7 +21,7 @@ def handleSms(sms):
     print('Replying to SMS...')
     sms.reply(u'SMS received: "{0}{1}"'.format(sms.text[:20], '...' if len(sms.text) > 20 else ''))
     print('SMS sent.\n')
-    print 'HI It"s Me Mario'
+    print('HI Its Me Mario')
     
 def main():
     print('Initializing modem...')
