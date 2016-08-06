@@ -23,7 +23,7 @@ def scanner_procces(frame,set_zbar):
             print '\033[1;32mResult : %s symbol "%s" \033[1;m' % (symbol.type,symbol.data)
            
     cv.ShowImage("webcame", frame)
-    cv.ShowImage("webcame2", get_sub)
+    #cv.ShowImage("webcame2", get_sub)
     cv.WaitKey(10)
  
    
