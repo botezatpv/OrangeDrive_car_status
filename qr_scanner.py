@@ -146,7 +146,7 @@ def getIntersection(a1,a2,b1,b2,intersection):
 camera = cv2.VideoCapture(0)
 #camera.resolution = (640,480)
 #camera.framerate = 32
-rawCapture = cam.read()
+rawCapture = camera.read()
 time.sleep(0.1)
 for frame in camera.capture_continuous(rawCapture,format="bgr",use_video_port=True):
 	image = frame.array
