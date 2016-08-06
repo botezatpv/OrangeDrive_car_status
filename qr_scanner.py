@@ -9,6 +9,7 @@ import math
 import numpy as np
 import zbar
 import imutils
+from qrtools import QR
 def distance(p,q):
 	return math.sqrt(math.pow(math.fabs(p[0]-q[0]),2)+math.pow(math.fabs(p[1]-q[1]),2))
 
@@ -141,8 +142,8 @@ def getIntersection(a1,a2,b1,b2,intersection):
 	t = cross((q[0]-p[0],q[1]-p[1]),s)/float(cross(r,s))
 	intersection = (int(p[0]+(t*r[0])),int(p[1]+(t*r[1])))
 	return True,intersection
-
-camera = cv2.VideoCapture(0)
+QR = QR()
+camera = QR.decode_webcam()
 camera.resolution = (640,480)
 camera.framerate = 32
 rawCapture = PiRGBArray(camera,size=(640,480))
