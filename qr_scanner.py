@@ -148,8 +148,8 @@ camera = cv2.VideoCapture(0)
 #camera.framerate = 32
 rawCapture = camera.read()
 time.sleep(0.1)
-for frame in rawCapture:
-	image = frame
+while(True):
+	image = rawCapture
 	img = image
 #show the image
 #wait until some key is pressed to procced
