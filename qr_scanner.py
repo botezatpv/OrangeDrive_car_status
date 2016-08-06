@@ -4,5 +4,5 @@ class ScanFromCamera:
 		myCode = QR()
 		print myCode.decode_webcam()
 if __name__=="__main__":
-	sc = ScanFromCamera
+	sc = ScanFromCamera()
 	sc.scan()
