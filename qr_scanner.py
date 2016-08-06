@@ -142,11 +142,11 @@ def getIntersection(a1,a2,b1,b2,intersection):
 	t = cross((q[0]-p[0],q[1]-p[1]),s)/float(cross(r,s))
 	intersection = (int(p[0]+(t*r[0])),int(p[1]+(t*r[1])))
 	return True,intersection
-QR = QR()
-camera = QR.decode_webcam()
-camera.resolution = (640,480)
-camera.framerate = 32
-rawCapture = PiRGBArray(camera,size=(640,480))
+
+camera = cv2.VideoCapture(0)
+#camera.resolution = (640,480)
+#camera.framerate = 32
+rawCapture = cam.read()
 time.sleep(0.1)
 for frame in camera.capture_continuous(rawCapture,format="bgr",use_video_port=True):
 	image = frame.array
