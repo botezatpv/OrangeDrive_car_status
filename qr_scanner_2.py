@@ -22,14 +22,14 @@ def scanner_procces(frame,set_zbar):
     for symbol in image:
             print '\033[1;32mResult : %s symbol "%s" \033[1;m' % (symbol.type,symbol.data)
            
-    cv.ShowImage("webcam", frame)
+    cv.ShowImage("webcame", frame)
     #cv.ShowImage("webcame2", get_sub)
     cv.WaitKey(10)
  
    
 if __name__ == "__main__":
     #set up our stuff
-    cv.NamedWindow("webcam", cv.CV_WINDOW_AUTOSIZE)
+    cv.NamedWindow("webcame", cv.CV_WINDOW_AUTOSIZE)
     capture = cv.CaptureFromCAM(-1)
     set_zbar = zbar.ImageScanner()
     while True:
