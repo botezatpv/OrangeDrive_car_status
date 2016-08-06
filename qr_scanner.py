@@ -148,7 +148,7 @@ camera = cv2.VideoCapture(0)
 #camera.framerate = 32
 rawCapture = camera.read()
 time.sleep(0.1)
-for frame in camera.capture_continuous(rawCapture,format="bgr",use_video_port=True):
+for frame in rawCapture:
 	image = frame.array
 	img = image
 #show the image
