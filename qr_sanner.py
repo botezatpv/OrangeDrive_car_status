@@ -10,6 +10,7 @@ class ScanQr:
         self.width = int(frame.width * self.set_width)
         self.height = int(frame.height * self.set_height)
         self.frame = frame
+        self.symbol = ""
 
     def scanner_procces(self):
         get_sub = cv.GetSubRect(self.frame, (self.coord_x+1, self.coord_y+1, self.width-1, self.height-1))
@@ -19,9 +20,14 @@ class ScanQr:
         image = zbar.Image(cm_im.width, cm_im.height, 'Y800', cm_im.tostring())
         set_zbar.scan(image)
         for symbol in image:
-            print symbol.data
-        cv.ShowImage("webcame", frame)
-        cv.WaitKey(10)
+            if symbol is not None
+                self.symbol = symbol
+                print symbol.data
+        print self.symbol
+
+        #cv.ShowImage("webcame", frame)
+        cv.WaitKey(100)
+
 
 
 if __name__ == "__main__":
