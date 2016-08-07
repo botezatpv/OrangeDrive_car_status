@@ -19,7 +19,7 @@ class ScanQr:
         image = zbar.Image(cm_im.width, cm_im.height, 'Y800', cm_im.tostring())
         set_zbar.scan(image)
         for symbol in image:
-            print '\033[1;32mResult : %s symbol "%s" \033[1;m' % (symbol.type,symbol.data)
+            print symbol.data
         cv.ShowImage("webcame", frame)
         cv.WaitKey(10)
 
