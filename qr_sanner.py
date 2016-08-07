@@ -20,7 +20,7 @@ class ScanQr:
         image = zbar.Image(cm_im.width, cm_im.height, 'Y800', cm_im.tostring())
         set_zbar.scan(image)
         for symbol in image:
-            if symbol is not None
+            if symbol:
                 self.symbol = symbol
                 print symbol.data
         print self.symbol
