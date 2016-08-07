@@ -30,7 +30,7 @@ class ScanQr:
    
 if __name__ == "__main__":
     #set up our stuff
-
+    scanQr = 0
 	cv.NamedWindow("webcame", cv.CV_WINDOW_AUTOSIZE)
 	capture = cv.CaptureFromCAM(-1)
 	set_zbar = zbar.ImageScanner()
