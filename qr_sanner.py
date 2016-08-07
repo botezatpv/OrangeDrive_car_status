@@ -20,9 +20,9 @@ class ScanQr:
         image = zbar.Image(cm_im.width, cm_im.height, 'Y800', cm_im.tostring())
         set_zbar.scan(image)
         for symbol in image:
-            if symbol:
-                self.symbol = symbol
-                print symbol.data
+        	type(symbol.data)
+            self.symbol = symbol.data
+            print symbol.data
         print self.symbol
 
         #cv.ShowImage("webcame", frame)
