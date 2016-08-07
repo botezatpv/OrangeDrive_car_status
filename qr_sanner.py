@@ -1,5 +1,8 @@
 ﻿import cv2.cv as cv
-import zbar
+try:
+    import zbar
+except:
+	pass
 class ScanQr:
     #initialazing variables
     def __init__(self, frame, set_zbar, set_width = 100.0/100, set_height = 90.0/100):
@@ -20,7 +23,7 @@ class ScanQr:
         image = zbar.Image(cm_im.width, cm_im.height, 'Y800', cm_im.tostring())
         set_zbar.scan(image)
         for symbol in image:
-        	type(symbol.data)
+            print type(symbol.data)
             self.symbol = symbol.data
             print symbol.data
         print self.symbol
